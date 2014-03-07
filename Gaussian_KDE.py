@@ -12,6 +12,10 @@ from matplotlib import cm as cm
 
 data=[BS_av_colour,BS_av_V]
 k=kde.gaussian_kde(data)
+
+k.covariance_factor = lambda : 0.3 #Adjust the covariance to show more/less detail
+k._compute_covariance()
+
 nbins=200 #PLAY WITH THIS, NOT TOO HIGH OR IT WILL TAKE FOREVER
 
 xaxis=[]#An array containing all you x-axis values
